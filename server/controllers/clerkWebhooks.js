@@ -1,4 +1,4 @@
-import User from "../models/User";
+import User from "../models/User.js";
 import { Webhook } from "svix";
 
 const clerkWebhooks = async (req, res) => {
@@ -26,17 +26,17 @@ const clerkWebhooks = async (req, res) => {
 
         switch (type) {
             case "user.created":{
-                await User.create(userData)
+                await User.create(userData);
                 break;
             }
 
             case "user.updated":{
-                await User.findByIdAndUpdate(data.id, userData)
+                await User.findByIdAndUpdate(data.id, userData);
                 break;
             }
 
             case "user.deleted":{
-                await User.findByIdAndUpdate(data.id)
+                await User.findByIdAndUpdate(data.id);
                 break;
             }
 
